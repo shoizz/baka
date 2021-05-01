@@ -1,0 +1,5 @@
+local baseplate = Instance.new("Part")
+baseplate.Parent = workspace.CurrentCamera
+baseplate.CFrame = CFrame.new(0,10000,0)
+baseplate.Size = Vector3.new(50,7,50)
+baseplate.Anchored = true
