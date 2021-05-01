@@ -88,10 +88,28 @@ object1.Touched:Connect(function(hit)
         local bv = Instance.new("BodyVelocity")
         bv.Parent = hit.Parent:FindFirstChild("HumanoidRootPart")
         bv.MaxForce = Vector3.new(math.huge,math.huge,math.huge)
-        bv.Velocity = Vector3.new(0,100,0)
-        wait(0.05)
+        bv.Velocity = Vector3.new(0,125,0)
+        wait(0.025)
         bv:Destroy()
     end
 end)
 
 build(object1,0.7,4,0.3,4)
+
+local building5 = Instance.new("Part")
+building5.Name = "Part"
+building5.Parent = buildings
+building5.CFrame = CFrame.new(-15,10020,15)
+building5.Size = Vector3.new(0,7,0)
+building5.Anchored = true
+
+build(building5,0.7,7,3,7)
+
+local building6 = Instance.new("Part")
+building6.Name = "Part"
+building6.Parent = buildings
+building6.CFrame = CFrame.new(15,10020,-15)
+building6.Size = Vector3.new(0,7,0)
+building6.Anchored = true
+
+build(building6,0.7,7,3,7)
