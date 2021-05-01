@@ -94,7 +94,73 @@ object1.Touched:Connect(function(hit)
     end
 end)
 
-build(object1,0.7,4,0.3,4)
+build(object1,0.5,4,0.3,4)
+
+local object2 = Instance.new("Part")
+object2.Name = "Part"
+object2.Parent = buildings
+object2.CFrame = CFrame.new(17.5,10003.5,0)
+object2.Size = Vector3.new(0,0.3,0)
+object2.Anchored = true
+object2.Color = Color3.fromRGB(95, 218, 255)
+object2.Material = Enum.Material.SmoothPlastic
+
+object2.Touched:Connect(function(hit)
+    if hit.Parent:FindFirstChild("Humanoid") then
+        local bv = Instance.new("BodyVelocity")
+        bv.Parent = hit.Parent:FindFirstChild("HumanoidRootPart")
+        bv.MaxForce = Vector3.new(math.huge,math.huge,math.huge)
+        bv.Velocity = Vector3.new(0,125,0)
+        wait(0.025)
+        bv:Destroy()
+    end
+end)
+
+build(object2,0.5,4,0.3,4)
+
+local object3 = Instance.new("Part")
+object3.Name = "Part"
+object3.Parent = buildings
+object3.CFrame = CFrame.new(0,10003.5,17.5)
+object3.Size = Vector3.new(0,0.3,0)
+object3.Anchored = true
+object3.Color = Color3.fromRGB(95, 218, 255)
+object3.Material = Enum.Material.SmoothPlastic
+
+object3.Touched:Connect(function(hit)
+    if hit.Parent:FindFirstChild("Humanoid") then
+        local bv = Instance.new("BodyVelocity")
+        bv.Parent = hit.Parent:FindFirstChild("HumanoidRootPart")
+        bv.MaxForce = Vector3.new(math.huge,math.huge,math.huge)
+        bv.Velocity = Vector3.new(0,125,0)
+        wait(0.025)
+        bv:Destroy()
+    end
+end)
+
+build(object3,0.5,4,0.3,4)
+
+local object4 = Instance.new("Part")
+object4.Name = "Part"
+object4.Parent = buildings
+object4.CFrame = CFrame.new(0,10003.5,-17.5)
+object4.Size = Vector3.new(0,0.3,0)
+object4.Anchored = true
+object4.Color = Color3.fromRGB(95, 218, 255)
+object4.Material = Enum.Material.SmoothPlastic
+
+object4.Touched:Connect(function(hit)
+    if hit.Parent:FindFirstChild("Humanoid") then
+        local bv = Instance.new("BodyVelocity")
+        bv.Parent = hit.Parent:FindFirstChild("HumanoidRootPart")
+        bv.MaxForce = Vector3.new(math.huge,math.huge,math.huge)
+        bv.Velocity = Vector3.new(0,125,0)
+        wait(0.025)
+        bv:Destroy()
+    end
+end)
+
+build(object4,0.5,4,0.3,4)
 
 local building5 = Instance.new("Part")
 building5.Name = "Part"
