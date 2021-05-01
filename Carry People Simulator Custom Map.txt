@@ -30,6 +30,10 @@ local buildings = Instance.new("Folder")
 buildings.Name = "Buildings"
 buildings.Parent = baseplate
 
+local objects = Instance.new("Folder")
+objects.Name = "Objects"
+objects.Parent = baseplate
+
 build(baseplate,0.7,65,7,65)
 
 player.Character.HumanoidRootPart.Anchored = false
@@ -69,3 +73,25 @@ building4.Size = Vector3.new(0,7,0)
 building4.Anchored = true
 
 build(building4,0.7,7,25,7)
+
+local object1 = Instance.new("Part")
+object1.Name = "Part"
+object1.Parent = buildings
+object1.CFrame = CFrame.new(-17.5,10003.5,0)
+object1.Size = Vector3.new(0,0.3,0)
+object1.Anchored = true
+object1.Color = Color3.fromRGB(95, 218, 255)
+object1.Material = Enum.Material.SmoothPlastic
+
+object1.Touched:Connect(function(hit)
+    if hit.Parent:FindFirstChild("Humanoid") then
+        local bv = Instance.new("BodyVelocity")
+        bv.Parent = hit.Parent:FindFirstChild("HumanoidRootPart")
+        bv.MaxForce = Vector3.new(math.huge,math.huge,math.huge)
+        bv.Velocity = Vector3.new(0,100,0)
+        wait(0.05)
+        bv:Destroy()
+    end
+end)
+
+build(object1,0.7,4,0.3,4)
