@@ -103,7 +103,7 @@ building5.CFrame = CFrame.new(-15,10020,15)
 building5.Size = Vector3.new(0,7,0)
 building5.Anchored = true
 
-build(building5,0.7,7,3,7)
+build(building5,0.7,9,3,9)
 
 local building6 = Instance.new("Part")
 building6.Name = "Part"
@@ -112,4 +112,22 @@ building6.CFrame = CFrame.new(15,10020,-15)
 building6.Size = Vector3.new(0,7,0)
 building6.Anchored = true
 
-build(building6,0.7,7,3,7)
+build(building6,0.7,9,3,9)
+
+local building7 = Instance.new("Part")
+building7.Name = "Part"
+building7.Parent = buildings
+building7.CFrame = CFrame.new(15,10020,15)
+building7.Size = Vector3.new(0,7,0)
+building7.Anchored = true
+
+build(building7,0.7,9,3,9)
+
+local building8 = Instance.new("Part")
+building8.Name = "Part"
+building8.Parent = buildings
+building8.CFrame = CFrame.new(-15,10020,-15)
+building8.Size = Vector3.new(0,7,0)
+building8.Anchored = true
+
+build(building8,0.7,9,3,9)
