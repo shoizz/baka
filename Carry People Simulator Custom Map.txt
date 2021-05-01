@@ -1,5 +1,71 @@
+--Services
+local tweenservice = game:GetService("TweenService")
+
+local player = game:GetService("Players").LocalPlayer
+player.Character.HumanoidRootPart.CFrame = CFrame.new(0,10010,0)
+player.Character.HumanoidRootPart.Anchored = true
+
+pcall(function()
+    if workspace.CurrentCamera.CustomMap then
+        workspace.CurrentCamera.CustomMap:Destroy()
+    end
+end)
+
+wait()
+
+function build(part,buildtime,sizex,sizey,sizez)
+    local tweena = tweenservice:Create(part, TweenInfo.new(buildtime), {Size = Vector3.new(sizex,sizey,sizez)})
+    tweena:Play()
+    tweena.Completed:Wait()
+end
+
 local baseplate = Instance.new("Part")
+baseplate.Name = "CustomMap"
 baseplate.Parent = workspace.CurrentCamera
 baseplate.CFrame = CFrame.new(0,10000,0)
-baseplate.Size = Vector3.new(50,7,50)
+baseplate.Size = Vector3.new(0,7,0)
 baseplate.Anchored = true
+
+local buildings = Instance.new("Folder")
+buildings.Name = "Buildings"
+buildings.Parent = baseplate
+
+build(baseplate,0.7,65,7,65)
+
+player.Character.HumanoidRootPart.Anchored = false
+
+local building1 = Instance.new("Part")
+building1.Name = "Part"
+building1.Parent = buildings
+building1.CFrame = CFrame.new(0,10010,25)
+building1.Size = Vector3.new(0,7,0)
+building1.Anchored = true
+
+build(building1,0.7,7,25,7)
+
+local building2 = Instance.new("Part")
+building2.Name = "Part"
+building2.Parent = buildings
+building2.CFrame = CFrame.new(0,10010,-25)
+building2.Size = Vector3.new(0,7,0)
+building2.Anchored = true
+
+build(building2,0.7,7,25,7)
+
+local building3 = Instance.new("Part")
+building3.Name = "Part"
+building3.Parent = buildings
+building3.CFrame = CFrame.new(25,10010,0)
+building3.Size = Vector3.new(0,7,0)
+building3.Anchored = true
+
+build(building3,0.7,7,25,7)
+
+local building4 = Instance.new("Part")
+building4.Name = "Part"
+building4.Parent = buildings
+building4.CFrame = CFrame.new(-25,10010,0)
+building4.Size = Vector3.new(0,7,0)
+building4.Anchored = true
+
+build(building4,0.7,7,25,7)
