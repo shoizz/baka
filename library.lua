@@ -11,7 +11,7 @@ function CreateInstance(cls,props)
 end
 
 function CreateTween(object,time,props)
-    local tween = TweenService:Create(object,TweenInfo.new(time),{props}):Play()
+    local tween = TweenService:Create(object,TweenInfo.new(time),props):Play()
 
     return tween
 end
@@ -36,6 +36,7 @@ function library:CreatePopup(parent,text)
     CreateCorner(MainFrame,0,2)
 
     TextButton.MouseButton1Down:Connect(function()
+
         local tween = CreateTween(MainFrame,0.75,{Size = UDim2.new(MainFrame.Size.X,0,0,0)})
         tween.Completed:Wait()
         MainFrame:Destroy()
