@@ -28,7 +28,7 @@ function library:CreatePopup(parent,text)
     CreateCorner(MainFrame,0,2)
 
     TextButton.MouseButton1Down:Connect(function()
-        Frame:Destroy()
+        Popup:Destroy()
     end)
 end
 
