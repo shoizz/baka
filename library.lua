@@ -1,3 +1,5 @@
+local library = {}
+
 local function CreateInstance(cls,props)
     local inst = Instance.new(cls)
     for i,v in pairs(props) do
@@ -6,7 +8,7 @@ local function CreateInstance(cls,props)
     return inst
 end
 
-function CreatePopup(parent,text)
+function library:CreatePopup(parent,text)
     local ScreenGui = parent
     local Popup = CreateInstance('Frame',{Style=Enum.FrameStyle.Custom,Active=false,AnchorPoint=Vector2.new(0, 0),BackgroundColor3=Color3.new(0.168627, 0.168627, 0.168627),BackgroundTransparency=0,BorderColor3=Color3.new(0.105882, 0.164706, 0.207843),BorderSizePixel=1,ClipsDescendants=false,Draggable=false,Position=UDim2.new(0.41220656, 0, 0.431466013, 0),Rotation=0,Selectable=false,Size=UDim2.new(0.174999997, 0, 0.135000005, 0),SizeConstraint=Enum.SizeConstraint.RelativeXY,Visible=true,ZIndex=1,Name = 'Popup',Parent = ScreenGui})
     local TopBar = CreateInstance('Frame',{Style=Enum.FrameStyle.Custom,Active=false,AnchorPoint=Vector2.new(0, 0),BackgroundColor3=Color3.new(0.113725, 0.113725, 0.113725),BackgroundTransparency=0,BorderColor3=Color3.new(0.105882, 0.164706, 0.207843),BorderSizePixel=1,ClipsDescendants=false,Draggable=false,Position=UDim2.new(0, 0, 0, 0),Rotation=0,Selectable=false,Size=UDim2.new(1, 0, 0.185000002, 0),SizeConstraint=Enum.SizeConstraint.RelativeXY,Visible=true,ZIndex=1,Name = 'TopBar',Parent = Popup})
@@ -19,3 +21,5 @@ function CreatePopup(parent,text)
         Frame:Destroy()
     end)
 end
+
+return library
