@@ -37,11 +37,8 @@ function library:CreatePopup(parent,text)
 
     TextButton.MouseButton1Down:Connect(function()
 
-        local tween = CreateTween(Frame,0.75,{Size = UDim2.new(MainFrame.Size.X,0,0,0)})
+        local tween = CreateTween(Popup,0.75,{Size = UDim2.new(MainFrame.Size.X,0,0,0)}):Play()
         tween.Completed:Wait()
-
-        local tween1 = CreateTween(TopBar,0.75,{Size = UDim2.new(0,0,TopBar.Size.Y,0)})
-        tween1.Completed:Wait()
         Popup:Destroy()
     end)
 end
