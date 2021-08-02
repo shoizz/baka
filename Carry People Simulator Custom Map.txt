@@ -83,7 +83,7 @@ function library:LaunchPad(obj,direction,height)
         if hit.Parent:FindFirstChild("Humanoid") then
             local bv = Instance.new("BodyVelocity",hit.Parent:FindFirstChild("HumanoidRootPart"))
             bv.MaxForce = Vector3.new(math.huge,math.huge,math.huge)
-            bv.Velocity = direction*height
+            bv.Velocity = Vector3.new(0,1*height,0)
             wait(0.1)
             bv:Destroy()
         end
