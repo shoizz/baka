@@ -80,7 +80,7 @@ function library:Chair(obj,sitheight,debounce)
     end)
 end
 
-function library:LaunchPad(obj,direction,height)
+function library:LaunchPad(obj,height)
     obj.Touched:Connect(function(hit)
         if hit.Parent:FindFirstChild("Humanoid") then
             local bv = Instance.new("BodyVelocity",hit.Parent:FindFirstChild("HumanoidRootPart"))
