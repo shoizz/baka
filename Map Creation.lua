@@ -33,6 +33,10 @@ function library:FetchPlayer()
     return player
 end
 
+function library:SetPlayerPosition(player,position)
+    player.Character.HumanoidRootPart.CFrame = position
+end
+
 function library:Build(name,parent,placetime,buildtime,position,size,transparency,material)
     local part = Instance.new("Part")
     part.Name = name
