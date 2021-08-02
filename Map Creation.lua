@@ -35,7 +35,6 @@ end
 
 function library:SetPlayerPosition(player,position,delay)
     player.Character.HumanoidRootPart.CFrame = position
-    wait(game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValueString())
     player.Character.HumanoidRootPart.Anchored = true
     wait(delay)
     player.Character.HumanoidRootPart.Anchored = false
