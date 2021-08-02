@@ -59,7 +59,7 @@ function library:Build(name,parent,placetime,buildtime,position,rotation,size,tr
     tweena.Completed:Wait()
 end
 
-function library:Chair(obj,debounce)
+function library:Chair(obj,sitheight,debounce)
     local sitdebounce = false
     
     obj.Touched:Connect(function(hit)
@@ -68,7 +68,7 @@ function library:Chair(obj,debounce)
                 sitdebounce = true
     
                 hit.Parent:FindFirstChild("Humanoid").Sit = true
-                hit.Parent:FindFirstChild("HumanoidRootPart").CFrame = buildings.chairsit.CFrame*CFrame.new(0,1,0)
+                hit.Parent:FindFirstChild("HumanoidRootPart").CFrame = obj.CFrame*CFrame.new(0,sitheight,0)
                 
                 wait(debounce)
     
