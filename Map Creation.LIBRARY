@@ -2,7 +2,7 @@ local library = {}
 
 local floor = 250
 
-function library:Start(height)
+function library:Setup(height)
     pcall(function()
         if workspace.CurrentCamera.CustomMap then
             workspace.CurrentCamera.CustomMap:Destroy()
