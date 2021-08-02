@@ -4,7 +4,7 @@ local tweenservice = game:GetService("TweenService")
 local floor = 250
 
 makefolder("Custom Maps")
-writefile("Custom Maps/Documentation.DOC")
+writefile("Custom Maps/Documentation.DOC","None Yet")
 
 function library:Setup(height)
     pcall(function()
