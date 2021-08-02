@@ -22,6 +22,8 @@ function library:Setup(height)
     objects.Name = "Objects"
     objects.Parent = folder
 
+    makefolder("Custom Maps")
+
     floor = height
 
     return folder,buildings,objects,floor
