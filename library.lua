@@ -12,6 +12,7 @@ end
 
 function CreateTween(object,time,props)
     local tween = TweenService:Create(object,TweenInfo.new(time),props):Play()
+    tween.Completed:Wait()
 
     return tween
 end
@@ -37,8 +38,7 @@ function library:CreatePopup(parent,text)
 
     TextButton.MouseButton1Down:Connect(function()
 
-        local tween = CreateTween(Popup,0.75,{Size = UDim2.new(MainFrame.Size.X,0,0,0)}):Play()
-        tween.Completed:Wait()
+        local tween = CreateTween(Popup,0.75,{Size = UDim2.new(MainFrame.Size.X,0,0,0)})
         Popup:Destroy()
     end)
 end
