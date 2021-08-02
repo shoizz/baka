@@ -6,6 +6,11 @@ local originalpos = self.Character.HumanoidRootPart.CFrame
 
 local humanoid = self.Character.Humanoid
 
+--Services
+
+local uis = game:GetService("UserInputService")
+local runservice = game:GetService("RunService")
+
 local function CreateInstance(cls,props)
     local inst = Instance.new(cls)
     for i,v in pairs(props) do
@@ -24,12 +29,22 @@ local gui = CreateInstance('ScreenGui',{Parent = self.PlayerGui,ResetOnSpawn=fal
 local frame = CreateInstance('Frame',{Parent=gui,Style=Enum.FrameStyle.Custom,Size=UDim2.new(0.1,0,0.1,0),Position=UDim2.new(0.5,0,0.5,0)})
 local dropdownbutton = CreateInstance('TextButton',{Parent=frame,BackgroundTransparency = 1,Size=UDim2.new(1,0,0.25,0),Position=UDim2.new(0,0,0.5,0),TextSize=20,Text="None",Font=Enum.Font.ArialBold})
 local bringbutton = CreateInstance('TextButton',{Parent=frame,BackgroundTransparency = 1,Size=UDim2.new(1,0,0.25,0),Position=UDim2.new(0,0,0.75,0),TextSize=20,Text="Bring",Font=Enum.Font.Arial})
+
 corner(frame,2)
 corner(dropdownbutton,2)
 
 local dropdown = CreateInstance('ScrollingFrame',{Parent=frame,Size=UDim2.new(0.75,0,1,0),CanvasSize=UDim2.new(0,0,20,0),Position=UDim2.new(-0.75,0,0,0),Visible=false,BackgroundTransparency=0})
-local ui = CreateInstance('UIGridLayout',{CellPadding=UDim2.new(0,0,0,0),CellSize=UDim2.new(0,math.floor(dropdown.AbsoluteSize.X)-1,0,math.floor(dropdown.AbsoluteSize.X/10)-1),Parent=dropdown})
+local ui = CreateInstance('UIGridLayout',{CellPadding=UDim2.new(0,0,0,0),CellSize=UDim2.new(0,math.floor(dropdown.AbsoluteSize.X)-1,0,math.floor(dropdown.AbsoluteSize.Y/5)-1),Parent=dropdown})
 local isdroppeddown = false
+local spectatedplayer = nil
+local isspectated = false
+
+uis.InputBegan:Connect(function(key)
+    if key.KeyCode == keybind then
+        workspace.CurrentCamera.CameraSubject = self.Character
+        isspectated = not isspectated
+    end
+end)
 
 dropdownbutton.MouseButton1Down:Connect(function()
     if isdroppeddown == false then
@@ -58,6 +73,14 @@ bringbutton.MouseButton1Down:Connect(function()
     end
 end)
 
+runservice.RenderStepped:Connect(function()
+    if isspectated == true then
+        workspace.CurrentCamera.CameraSubject = game:GetService("Players")[player].Character
+    elseif isspectated == false then
+        workspace.CurrentCamera.CameraSubject = self.Character
+    end
+end)
+
 local function createbutton(v)
     v = game:GetService("Players")[v]
     local selfbutton = CreateInstance('TextButton',{Parent=dropdown,BackgroundTransparency = 0,Size=UDim2.new(1,0,0.25,0),Position=UDim2.new(0,0,0.5,0),TextScaled=true,Text=v.Name.." ("..v.DisplayName..")",Name=v.Name})
@@ -80,7 +103,6 @@ playersservice.PlayerAdded:Connect(function(player)
     createbutton(player.Name)
 end)
 
-local uis = game:GetService("UserInputService")
 local tweenservice = game:GetService("TweenService")
 
 local dragging
