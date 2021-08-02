@@ -3,9 +3,6 @@ local library = {}
 local tweenservice = game:GetService("TweenService")
 local floor = 250
 
-makefolder("Custom Maps")
---writefile("Custom Maps/Documentation.DOC","None Yet")
-
 function library:Setup(height)
     pcall(function()
         if workspace.CurrentCamera.CustomMap then
