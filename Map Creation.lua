@@ -33,8 +33,12 @@ function library:FetchPlayer()
     return player
 end
 
-function library:SetPlayerPosition(player,position)
+function library:SetPlayerPosition(player,position,delay)
     player.Character.HumanoidRootPart.CFrame = position
+    wait(game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValueString())
+    player.Character.HumanoidRootPart.Anchored = true
+    wait(delay)
+    player.Character.HumanoidRootPart.Anchored = false
 end
 
 function library:Build(name,parent,placetime,buildtime,position,size,transparency,material)
