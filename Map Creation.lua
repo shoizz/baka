@@ -46,11 +46,11 @@ function library:Build(name,parent,placetime,buildtime,position,rotation,size,tr
     part.Material = material
     part.Parent = parent
     part.Transparency = transparency
-    part.CFrame = CFrame.new(position.X,0,position.Z) * rotation
+    part.CFrame = CFrame.new(position.X,0,position.Z)
     part.Size = Vector3.new(size.X/7.5,size.Y,size.Z/7.5)
     part.Anchored = true
 
-    local tweenb = tweenservice:Create(part, TweenInfo.new(placetime), {CFrame = position})
+    local tweenb = tweenservice:Create(part, TweenInfo.new(placetime), {CFrame = position * rotation})
     tweenb:Play()
     tweenb.Completed:Wait()
 
