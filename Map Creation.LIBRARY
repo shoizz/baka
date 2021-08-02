@@ -23,7 +23,7 @@ function library:Setup(height)
 
     floor = height
 
-    return floor
+    return folder,buildings,objects,floor
 end
 
 function library:FetchPlayer()
