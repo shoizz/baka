@@ -27,8 +27,8 @@ local bringbutton = CreateInstance('TextButton',{Parent=frame,BackgroundTranspar
 corner(frame,2)
 corner(dropdownbutton,2)
 
-local dropdown = CreateInstance('ScrollingFrame',{Parent=frame,Size=UDim2.new(0.75,0,1,0),CanvasSize=UDim2.new(0,0,2,0),Position=UDim2.new(-0.75,0,0,0),Visible=false,BackgroundTransparency=0})
-local ui = CreateInstance('UIGridLayout',{CellPadding=UDim2.new(0,0,0,0),CellSize=UDim2.new(1,0,0.001*#players,0),Parent=dropdown})
+local dropdown = CreateInstance('ScrollingFrame',{Parent=frame,Size=UDim2.new(0.75,0,1,0),CanvasSize=UDim2.new(0,0,20,0),Position=UDim2.new(-0.75,0,0,0),Visible=false,BackgroundTransparency=0})
+local ui = CreateInstance('UIGridLayout',{CellPadding=UDim2.new(0,0,0,0),CellSize=UDim2.new(0,math.floor(dropdown.AbsoluteSize.X)-1,0,math.floor(dropdown.AbsoluteSize.X/10)-1),Parent=dropdown})
 local isdroppeddown = false
 
 dropdownbutton.MouseButton1Down:Connect(function()
